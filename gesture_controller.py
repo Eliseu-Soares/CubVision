@@ -4,6 +4,7 @@ from hand_tracker import HandTracker
 from hand_features import HandFeatures
 from smoothing import ExponentialSmoother
 from state_machine import MovementStateMachine
+from udp.udp_sender import UDPsender
 
 
 # -----------------------------
@@ -53,7 +54,7 @@ def detect_command(x, y):
     """
     Convert hand position into a movement command.
     """
-
+    send_to_server = UDPsender(5000, "127.0.0.1")
     # Center = STOP
     if DEAD_ZONE_MIN <= x <= DEAD_ZONE_MAX and \
        DEAD_ZONE_MIN <= y <= DEAD_ZONE_MAX:
@@ -61,16 +62,20 @@ def detect_command(x, y):
 
     # Horizontal movement
     if x < DEAD_ZONE_MIN:
+        send_to_server.send("LEFT")
         return "LEFT"
 
     if x > DEAD_ZONE_MAX:
+        send_to_server.send("RIGHT")
         return "RIGHT"
 
     # Vertical movement
     if y < DEAD_ZONE_MIN:
+        send_to_server.send("FORWARD")
         return "FORWARD"
 
     if y > DEAD_ZONE_MAX:
+        send_to_server.send("BACKWARD")
         return "BACKWARD"
 
     return "STOP"
