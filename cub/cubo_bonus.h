@@ -6,7 +6,7 @@
 /*   By: elsoares <elsoares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:34:30 by sgaspar           #+#    #+#             */
-/*   Updated: 2026/09/14 16:07:40 by elsoares         ###   ########.fr       */
+/*   Updated: 2026/09/18 18:01:17 by elsoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ typedef struct s_cubo
 	int			color_sky;
 	int			updated;
 	int			mouse_side_rotate;
-	int			udp_side_rotate;
+	int			move_direction;
 }	t_cubo;
 
 void	move_front_back(t_cubo *cubo, int side);

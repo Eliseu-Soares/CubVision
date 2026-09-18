@@ -6,7 +6,7 @@
 /*   By: elsoares <elsoares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 16:15:21 by sgaspar           #+#    #+#             */
-/*   Updated: 2026/09/14 16:06:18 by elsoares         ###   ########.fr       */
+/*   Updated: 2026/09/15 15:32:50 by elsoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	main(int argc, char **argv)
 	update_direcao(&cubo, 0);
 	load_texture_data(&cubo);
 	mlx_hook(cubo.win, 17, 1L << 0, close_windows, &cubo);
-	mlx_hook(cubo.win, 2, 1L << 0, key_event, &cubo);
-	//mlx_hook(cubo.win, ON_MOUSEMOVE, 1L << 6, mouse_event, &cubo);
+//  mlx_hook(cubo.win, 2, 1L << 0, key_event, &cubo);
+//	mlx_hook(cubo.win, ON_MOUSEMOVE, 1L << 6, mouse_event, &cubo);
 	mlx_loop_hook(cubo.mlx, update_cubo, &cubo);
 	mlx_loop(cubo.mlx);
 	destroy(&cubo);

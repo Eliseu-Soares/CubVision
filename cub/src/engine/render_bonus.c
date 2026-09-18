@@ -6,7 +6,7 @@
 /*   By: elsoares <elsoares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:49:14 by sgaspar           #+#    #+#             */
-/*   Updated: 2026/09/14 16:12:26 by elsoares         ###   ########.fr       */
+/*   Updated: 2026/09/15 15:42:37 by elsoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	update_cubo(void *parm)
 	
 	if (cubo->side_rotate)
 		rotate(cubo, cubo->side_rotate, cubo->speed_rotate);
+
+	if (cubo->move_direction == 1)
+		move_front_back(cubo, 1);
+	if (cubo->move_direction == -1)
+		move_front_back(cubo, -1);
 	render(cubo);
 	return (0);
 }

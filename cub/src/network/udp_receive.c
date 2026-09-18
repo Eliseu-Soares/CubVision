@@ -85,6 +85,7 @@ void	udp_close(t_udp *udp)
 void	handle_udp_command(t_cubo *cubo, char command)
 {
 	//Rotation	
+
 	if (command == 'L')
 	{
 		cubo->side_rotate= -1;
@@ -98,7 +99,14 @@ void	handle_udp_command(t_cubo *cubo, char command)
 		//cubo->speed_rotate *= (x - S_WIDTH / 2.0) / (S_WIDTH / 2.0);
 	}
 	else if (command == 'S')
+	{
 		cubo->side_rotate = 0;
+		cubo->move_direction = 0;
+	}
+	else if (command == 'F')
+		cubo->move_direction = 1;
+	else if (command == 'B')
+		cubo->move_direction = -1;	
 }
 
 int init_udp(t_cubo *cubo)
